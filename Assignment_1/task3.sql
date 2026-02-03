@@ -1,0 +1,54 @@
+INSERT INTO STUDENTS VALUES 
+(1011, 'Mohit Kumar', 'mohit@gmail.com', 23, '2023-08-01', 1),
+(1012, 'Simran Kaur', 'simran@gmail.com', 22, '2023-08-05', 1),
+(1013, 'Rohit Mishra', 'rohit@gmail.com', 24, '2023-08-10', 1);
+
+
+INSERT INTO COURSES VALUES
+(7, 'Advanced AI', 12000.00);
+
+
+
+
+/* SELECT STATMEMENTS */
+
+SELECT * FROM STUDENTS;
+
+SELECT name, email FROM STUDENTS;
+
+SELECT * FROM STUDENTS ORDER BY age DESC;
+
+SELECT TOP 5 * FROM STUDENTS ORDER BY join_date;
+
+SELECT DISTINCT age FROM STUDENTS;
+
+SELECT DISTINCT course_name FROM COURSES;
+
+
+
+/* UPDATE STATEMENTS */
+
+UPDATE STUDENTS SET age = 26 WHERE student_id= 1009;
+
+UPDATE STUDENTS SET active_flag = 0 WHERE student_id IN (1007, 1008);
+
+UPDATE COURSES SET  fees = fees * 1.10;
+
+
+/*DELETE STATEMENTS */
+
+DELETE FROM STUDENTS WHERE student_id = 1012;
+
+DELETE FROM COURSES WHERE fees < 1000;
+
+DELETE FROM ENROLLMENTS WHERE enroll_timestamp < '2023-01-10';
+
+
+/* ALTER STATEMENTS */
+
+ALTER TABLE STUDENTS ALTER COLUMN name VARCHAR(70);
+
+
+EXEC sp_rename 'STUDENTS.join_date', 'registration_date', 'COLUMN';
+
+ALTER TABLE STUDENTS ADD phone_number VARCHAR(15);
